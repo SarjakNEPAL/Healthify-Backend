@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import { Fragment } from 'react';
 import './Home.css';
 
-const Home = () => {
+const index = () => {
   return (
     <Fragment>
       <nav>
         <Link to="/" className="logo">
-          <img src="../../../img/logo.png" alt="Healthify" />
+          <img src="..\src\img\logo.png" alt="Healthify" />
         </Link>
         <Link to="/" style={{ color: "aliceblue", textDecoration: "none" }}>
           <h1>Healthify</h1>
@@ -40,7 +40,7 @@ const Home = () => {
             </div>
           </div>
           <div id="image">
-            <img src="../../../img/doctor3.jpg" alt="Healthify" />
+            <img src="../src/img/doctor3.jpg" alt="Healthify" />
           </div>
         </div>
       </main>
@@ -51,4 +51,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default index;

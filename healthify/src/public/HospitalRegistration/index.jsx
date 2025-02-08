@@ -15,7 +15,7 @@ const HospitalRegistration = () => {
     <Fragment>
       <nav>
         <Link to="/" className="logo">
-          <img src="../../../img/logo.png" alt="Healthify" />
+          <img src="./src/img/logo.png" alt="Healthify" />
         </Link>
         <Link to="/" style={{ color: "aliceblue", textDecoration: "none" }}>
           <h1>Healthify</h1>
@@ -46,6 +46,11 @@ const HospitalRegistration = () => {
               <button type="submit" className="button">Register</button>
             </form>
           </div>
+          <div id="inside">
+                              <h1>Register</h1>
+                              <img src="./src/img/regImg.png" alt="Hospital Pic" /><br />
+                              <Link to="/login" style={{ fontSize: '1rem' }}>Already Registered? Sign In</Link>
+                          </div>
         </div>
       </main>
       <footer>

@@ -1,20 +1,20 @@
 import React, { lazy, Suspense } from 'react';
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/public/Home';
+import Home from "./public/Home/index"
 
-const Register = lazy(() => import('./components/public/Registration'));
-const Login = lazy(() => import('./components/public/Login'));
-const About = lazy(() => import('./components/public/About'));
-const User_Table = lazy(() => import('./components/private/UserInformation/UserInformation'));
-const User_Form = lazy(() => import('./components/private/UserInformation/AddUser'));
-const AdminPanel = lazy(() => import('./components/private/adminPanel/AdminDashboard'));
-const HospitalDashboard = lazy(() => import('./components/private/HospitalDashboard'));
-const StaffDashboard = lazy(() => import('./components/private/StaffDashboard'));
-const PatientManagement = lazy(() => import('./components/private/PatientManagement'));
-const StaffManagement = lazy(() => import('./components/private/StaffManagement'));
-const AppointmentManagement = lazy(() => import('./components/private/AppointmentManagement'));
-const DoctorManagement = lazy(() => import('./components/private/DoctorManagement'));
+const Register = lazy(() => import('./public/HospitalRegistration/index'));
+const Login = lazy(() => import('./public/Login/index'));
+const About = lazy(() => import('./public/About/index'));
+// const User_Table = lazy(() => import('./private/UserInformation/UserInformation/index'));
+// const User_Form = lazy(() => import('./private/UserInformation/AddUser/index'));
+const AdminPanel = lazy(() => import('./private/adminPanel/AdminDashboard'));
+const HospitalDashboard = lazy(() => import('./private/HospitalDashboard/index'));
+const StaffDashboard = lazy(() => import('./private/StaffDashboard/index'));
+const PatientManagement = lazy(() => import('./private/PatientManagement/index'));
+const StaffManagement = lazy(() => import('./private/StaffManagement/index'));
+const AppointmentManagement = lazy(() => import('./private/AppointmentManagment/index'));
+const DoctorManagement = lazy(() => import('./private/DoctorManagement/index'));
 
 function App() {
   const [tableUserData, setUserTableData] = useState([]);
@@ -31,9 +31,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
-          <Route path="/users" element={<User_Table TBLdata={tableUserData} />} />
           <Route path="/admin" element={<AdminPanel />} />
-          <Route path="/users/create" element={<User_Form addUser={handleUserData} />} />
           <Route path="/hospital-dashboard" element={<HospitalDashboard />} />
           <Route path="/staff-dashboard" element={<StaffDashboard />} />
           <Route path="/patients" element={<PatientManagement />} />
