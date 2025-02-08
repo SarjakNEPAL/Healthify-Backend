@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
-import { Fragment } from "react";
-import "../css/style.css"
+import { Fragment } from 'react';
+import './Home.css';
+
 const Home = () => {
   return (
     <Fragment>
       <nav>
         <Link to="/" className="logo">
-          <img src="../src/img/logo.png" alt="Healthify" />
+          <img src="../../../img/logo.png" alt="Healthify" />
         </Link>
         <Link to="/" style={{ color: "aliceblue", textDecoration: "none" }}>
           <h1>Healthify</h1>
@@ -39,7 +40,7 @@ const Home = () => {
             </div>
           </div>
           <div id="image">
-            <img src="../src/img/doctor3.jpg" alt="Healthify" />
+            <img src="../../../img/doctor3.jpg" alt="Healthify" />
           </div>
         </div>
       </main>
