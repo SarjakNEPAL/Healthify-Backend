@@ -8,6 +8,7 @@ const Login = lazy(() => import('./public/Login'));
 const About = lazy(() => import('./public/About'));
 const User_Table = lazy(() => import('./private/UserInformation/UserInformation'));
 const User_Form = lazy(() => import('./private/UserInformation/AddUser'));
+const Admin= lazy(() => import('./private/adminPanel/AdminDashboard'));
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
                     <Route path="/register" element={<Register />} />
                     <Route path="/about" element={<About /> } />
                     <Route path="/users" element={<User_Table TBLdata={tableUserData}/>} />
+                    <Route path="/admin" element={<Admin Panel/>} />
                     <Route  path="/users/create" element={<User_Form addUser={handleUserData} /> } />
                 </Routes>
             </Suspense>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/style2.css';
 
-const Registration = () => (
+const Registration = () => {
 
     return(
     <>
@@ -44,6 +44,6 @@ const Registration = () => (
             <p>&copy; 2024 Web Development Project. By Sarjak Bhandari.</p>
         </footer>
     </>
-);
+)};
 
 export default Registration;
