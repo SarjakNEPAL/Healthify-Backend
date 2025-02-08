@@ -1,14 +1,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import './AppointmentManagement.css';
+import './DoctorManagement.css';
 
-const AppointmentManagement = () => {
+const DoctorManagement = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
-    // Add appointment scheduling logic here
+    // Add doctor registration logic here
   };
 
   return (
@@ -37,21 +37,17 @@ const AppointmentManagement = () => {
 
       {/* Main Content */}
       <div className="management">
-        <h2>Manage Appointments</h2>
+        <h2>Manage Doctors</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="patientName">Patient Name</label>
-          <input type="text" id="patientName" {...register('patientName', { required: true })} />
-          <label htmlFor="doctorName">Doctor Name</label>
-          <input type="text" id="doctorName" {...register('doctorName', { required: true })} />
-          <label htmlFor="date">Date</label>
-          <input type="date" id="date" {...register('date', { required: true })} />
-          <label htmlFor="time">Time</label>
-          <input type="time" id="time" {...register('time', { required: true })} />
-          <button type="submit" className="button">Schedule Appointment</button>
+          <label htmlFor="name">Name</label>
+          <input type="text" id="name" {...register('name', { required: true })} />
+          <label htmlFor="specialization">Specialization</label>
+          <input type="text" id="specialization" {...register('specialization', { required: true })} />
+          <button type="submit" className="button">Add Doctor</button>
         </form>
       </div>
     </>
   );
 };
 
-export default AppointmentManagement;
+export default DoctorManagement;
