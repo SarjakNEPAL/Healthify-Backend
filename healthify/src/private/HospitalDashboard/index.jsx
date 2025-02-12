@@ -1,5 +1,4 @@
-// Dashboard.jsx
-import React from "react";
+import React from 'react';
 import { 
   BarChart3, 
   Users, 
@@ -9,28 +8,26 @@ import {
   LogOut,
   Key,
   ChevronRight
-} from "lucide-react";
+} from 'lucide-react';
 import './HospitalDashboard.css';
 
-const DashboardCard = ({ icon: Icon, count, label, colorClass }) => (
-  <div className="dashboard-card">
-    <div className="card-content">
-      <div className={`icon-container ${colorClass}`}>
-        <Icon />
-      </div>
-      <div className="card-stats">
-        <span className="stat-number">{count}</span>
-        <span className="stat-label">{label}</span>
-      </div>
+const StatCard = ({ icon: Icon, count, label, colorClass }) => (
+  <div className="stat-card">
+    <div className={`stat-icon ${colorClass}`}>
+      <Icon size={24} />
+    </div>
+    <div className="stat-info">
+      <div className="stat-number">{count}</div>
+      <div className="stat-label">{label}</div>
     </div>
   </div>
 );
 
-const MenuItem = ({ children, icon: Icon }) => (
+const MenuItem = ({ icon: Icon, children }) => (
   <li className="menu-item">
-    <Icon className="menu-item-icon" />
-    <span className="menu-item-text">{children}</span>
-    <ChevronRight className="menu-item-icon ml-auto" />
+    <Icon size={20} />
+    <span>{children}</span>
+    <ChevronRight className="ml-auto" size={16} />
   </li>
 );
 
@@ -39,21 +36,19 @@ const Dashboard = () => {
     <div className="dashboard-container">
       {/* Header */}
       <header className="header">
-        <div className="header-content">
-          <div className="logo-container">
-            <Menu className="menu-toggle" />
-            <h1 className="logo">Healthify</h1>
-          </div>
-          <nav className="nav-buttons">
-            <button className="nav-button">
-              <LogOut />
-              <span>Logout</span>
-            </button>
-            <button className="nav-button primary">
-              <Key />
-              <span>Change Password</span>
-            </button>
-          </nav>
+        <div className="logo-container">
+          <Menu className="menu-toggle" color="white" />
+          <h1 className="logo">Healthify</h1>
+        </div>
+        <div className="nav-buttons">
+          <button className="nav-button">
+            <LogOut size={20} />
+            <span>Logout</span>
+          </button>
+          <button className="nav-button">
+            <Key size={20} />
+            <span>Change Password</span>
+          </button>
         </div>
       </header>
 
@@ -72,33 +67,31 @@ const Dashboard = () => {
 
         {/* Main Content */}
         <main className="main-content">
-          <div className="content-wrapper">
-            <div className="welcome-card">
-              <h2 className="welcome-title">Welcome to Healthify</h2>
-              <p className="welcome-text">
-                A comprehensive appointment booking system for hospitals, clinics, and dental care.
-              </p>
-              
-              <div className="dashboard-grid">
-                <DashboardCard 
-                  icon={Hospital}
-                  count="150"
-                  label="Hospitals"
-                  colorClass="blue"
-                />
-                <DashboardCard 
-                  icon={Users}
-                  count="1,200"
-                  label="Patients"
-                  colorClass="teal"
-                />
-                <DashboardCard 
-                  icon={BarChart3}
-                  count="300"
-                  label="Doctors"
-                  colorClass="purple"
-                />
-              </div>
+          <div className="welcome-card">
+            <h2 className="welcome-title">Welcome to Healthify</h2>
+            <p className="welcome-text">
+              A comprehensive appointment booking system for hospitals, clinics, and dental care.
+            </p>
+            
+            <div className="stats-grid">
+              <StatCard 
+                icon={Hospital}
+                count="150"
+                label="Hospitals"
+                colorClass="blue"
+              />
+              <StatCard 
+                icon={Users}
+                count="1,200"
+                label="Patients"
+                colorClass="green"
+              />
+              <StatCard 
+                icon={BarChart3}
+                count="300"
+                label="Doctors"
+                colorClass="purple"
+              />
             </div>
           </div>
         </main>
