@@ -136,7 +136,7 @@ form{
 #form{
     margin-top: 2rem;
     margin-right:1rem;
-    margin-left: 1rem;
+    margin-left: 0rem;
 }
 #register {
     display: flex;
@@ -147,6 +147,7 @@ form{
     border-radius: 24px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: absolute;
+    padding-right: 1.7rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -154,6 +155,7 @@ form{
 
 #reg input{
     padding: 0.5rem;
+    margin-right: 2rem;
 }
 
 #reg{
@@ -191,6 +193,7 @@ font-size: 0.8rem ;
 }
 #inside{
     margin: 1rem;
+
 }
 
 @media (max-width:1360px) {
