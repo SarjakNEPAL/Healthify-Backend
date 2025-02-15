@@ -1,39 +1,44 @@
-import React from 'react';
+import React from "react";
 import { Link } from 'react-router-dom';
-import './StaffDashboard.css';
+import { useNavigate } from "react-router-dom";
+import "./staffDashboard.css";
 
-const StaffDashboard = () => {
+const staffDashboard = () => {
+  const navigate = useNavigate();
+
   return (
     <>
-      <nav>
-        <Link to="/" className="logo">
-          <img src="../../../img/logo.png" alt="Healthify" />
+    <nav>
+        <Link to="/staff-dashboard" className="logo">
+          <img src="./src/img/logo.png" alt="Healthify" />
         </Link>
-        <Link to="/" style={{ color: "aliceblue", textDecoration: "none" }}>
+        <Link to="/staff-dashboard" style={{ color: "aliceblue", textDecoration: "none" }}>
           <h1>Healthify</h1>
         </Link>
         <div id="trans">
-          <Link to="/patients">Patients</Link>
-          <Link to="/appointments">Appointments</Link>
-          <Link to="/staff">Staff</Link>
+          <Link to="/login">LogOut</Link>
         </div>
       </nav>
-      <div id="subnav">
-        <Link to="/patients">Patients</Link>
-        <Link to="/appointments">Appointments</Link>
-        <Link to="/staff">Staff</Link>
-      </div>
       <main>
-        <div className="dashboard">
-          <h2>Staff Dashboard</h2>
-          <p>Manage Patients and Appointments</p>
+        <div id="boxcontent">
+          <div className="header-content">
+            <h1>Healthify staff Dashboard</h1>
+            <div className="header-buttons">
+            <button onClick={() => navigate("/patients")} className="button">Register Patient</button>
+        <button onClick={() => navigate("/appointments")} className="button">Book Appointment</button>
+        <button onClick={() => navigate("/change-password")} className="button">Change Password</button>
+            </div>
+          </div>
+          <div id="image">
+            <img src="../src/img/doctor3.jpg" alt="Healthify" />
+          </div>
         </div>
       </main>
-      <footer>
+    <footer>
         <p>&copy; 2024 Web Development Project. By Sarjak Bhandari.</p>
       </footer>
-    </>
+      </>
   );
 };
 
-export default StaffDashboard;
+export default staffDashboard;
