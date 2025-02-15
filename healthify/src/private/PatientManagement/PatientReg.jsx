@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import "./PatientRegistration.css";
+import "./PatientManagement.css";
 
 const PatientRegistration = ({ addPatient }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -39,12 +39,14 @@ const PatientRegistration = ({ addPatient }) => {
                 <input {...register("name", { required: "Patient name is required" })} type="text" />
               </div>
               <div className="form-group">
-                <label>Age</label>
-                <input {...register("age", { required: "Age is required" })} type="number" />
+                <label>Phone Number</label>
+                <input {...register("age", { required: "Number is required" })} type="number" />
               </div>
               <div className="form-group">
                 <label>Disease</label>
                 <input {...register("disease", { required: "Disease is required" })} type="text" />
+                <label>Address</label>
+                <input {...register("Address", { required: "Address is required" })} type="text" />
               </div>
               <div className="form-actions">
                 <button type="submit" className="submit-button">Register Patient</button>
