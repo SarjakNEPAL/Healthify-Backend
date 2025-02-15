@@ -1,46 +1,25 @@
 import React, { useState } from "react";
 import DataTable from "react-data-table-component";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import "./AdminDashboard.css";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import "./DoctorManagement.css";
 
-const AdminPanel = () => {
-  const [organizations, setOrganizations] = useState([
-    { id: 1, name: "Healthify Hospital", email: "contact@healthify.com" },
-    { id: 2, name: "Wellness Clinic", email: "info@wellness.com" },
-  ]);
-
+const DoctorMgmt = () => {
   const [doctors, setDoctors] = useState([
     { id: 1, name: "Dr. Smith", specialization: "Cardiology" },
     { id: 2, name: "Dr. Johnson", specialization: "Neurology" },
   ]);
 
-  const [newDoctor, setNewDoctor] = useState({ name: "", specialization: "" });
-
-  const deleteOrganization = (id) => {
-    setOrganizations(organizations.filter((org) => org.id !== id));
-  };
+  const { register, handleSubmit, reset } = useForm();
 
   const deleteDoctor = (id) => {
     setDoctors(doctors.filter((doc) => doc.id !== id));
   };
 
-  const addDoctor = () => {
-    if (newDoctor.name && newDoctor.specialization) {
-      setDoctors([...doctors, { id: doctors.length + 1, ...newDoctor }]);
-      setNewDoctor({ name: "", specialization: "" });
-    }
+  const addDoctor = (data) => {
+    setDoctors([...doctors, { id: doctors.length + 1, ...data }]);
+    reset();
   };
-
-  const organizationColumns = [
-    { name: "Organization Name", selector: (row) => row.name, sortable: true },
-    { name: "Email", selector: (row) => row.email },
-    {
-      name: "Actions",
-      cell: (row) => (
-        <button onClick={() => deleteOrganization(row.id)} className="delete-btn">Delete</button>
-      ),
-    },
-  ];
 
   const doctorColumns = [
     { name: "Doctor Name", selector: (row) => row.name, sortable: true },
@@ -48,7 +27,12 @@ const AdminPanel = () => {
     {
       name: "Actions",
       cell: (row) => (
-        <button onClick={() => deleteDoctor(row.id)} className="delete-btn">Delete</button>
+        <button
+          onClick={() => deleteDoctor(row.id)}
+          className="delete-button"
+        >
+          Delete
+        </button>
       ),
     },
   ];
@@ -56,67 +40,51 @@ const AdminPanel = () => {
   return (
     <>
       <nav>
-        <Link to="/" className="logo">
-          <img src="..\src\img\logo.png" alt="Healthify" />
-        </Link>
-        <Link to="/" style={{ color: "aliceblue", textDecoration: "none" }}>
-          <h1>Healthify | Admin</h1>
-        </Link>
-        <div id="trans">
-          <Link to="/change-password" className="change-password-btn">Change Password</Link>
+              <Link to="/hospital-dashboard" className="logo">
+                <img src="./src/img/logo.png" alt="Healthify" />
+              </Link>
+              <Link to="/hospital-dashboard" style={{ color: "aliceblue", textDecoration: "none" }}>
+                <h1>Healthify</h1>
+              </Link>
+              <div id="trans">
+                <Link to="/hospital-dashboard">Back</Link>
+              </div>
+            </nav>
+      <div className="container">
+        <div className="card">
+          <div className="card-header">
+            <h3>Add Doctor</h3>
+          </div>
+          <div className="card-content">
+            <form onSubmit={handleSubmit(addDoctor)} className="form">
+              <div className="form-grid">
+                <div className="form-group">
+                  <label>Doctor Name</label>
+                  <input {...register("name", { required: "Doctor name is required" })} type="text" />
+                </div>
+                <div className="form-group">
+                  <label>Specialization</label>
+                  <input {...register("specialization", { required: "Specialization is required" })} type="text" />
+                </div>
+              </div>
+              <div className="form-actions">
+                <button type="submit" className="submit-button">Add Doctor</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </nav>
-      <div className="admin-container">
-        <h2>Organizations</h2>
-        <DataTable columns={organizationColumns} data={organizations} pagination />
-
-        <h2>Doctor Management</h2>
-        <div className="doctor-form">
-          <input
-            type="text"
-            placeholder="Doctor Name"
-            value={newDoctor.name}
-            onChange={(e) => setNewDoctor({ ...newDoctor, name: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Specialization"
-            value={newDoctor.specialization}
-            onChange={(e) => setNewDoctor({ ...newDoctor, specialization: e.target.value })}
-          />
-          <button onClick={addDoctor} className="add-btn">Add Doctor</button>
-        </div>
-        <DataTable columns={doctorColumns} data={doctors} pagination />
       </div>
-      <footer>
+
+      <div className="container">
+          <h2>Doctor Management</h2>
+          <DataTable columns={doctorColumns} data={doctors} pagination />
+      </div>
+
+      <footer className="footer">
         <p>&copy; 2024 Web Development Project. By Sarjak Bhandari.</p>
       </footer>
     </>
   );
 };
 
-const ChangePassword = () => {
-  const [password, setPassword] = useState("");
-  
-  const handleChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Password changed successfully!");
-  };
-
-  return (
-    <div className="change-password-container">
-      <h2>Change Password</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="password" value={password} onChange={handleChange} placeholder="New Password" required />
-        <button type="submit">Update Password</button>
-      </form>
-      <Link to="/admin">Back to Admin Panel</Link>
-    </div>
-  );
-};
-
-export default AdminPanel;
+export default DoctorMgmt;
