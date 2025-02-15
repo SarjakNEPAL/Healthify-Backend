@@ -12,6 +12,10 @@ const PatientManagement = lazy(() => import('./private/PatientManagement/index')
 const StaffManagement = lazy(() => import('./private/StaffManagement/index'));
 const AppointmentManagement = lazy(() => import('./private/AppointmentManagment/index'));
 const DoctorManagement = lazy(() => import('./private/DoctorManagement/index'));
+const PatientRegistration= lazy(() => import('./private/PatientManagement/PatientReg'));
+const StaffRegistration= lazy(() => import('./private/StaffManagement/StaffReg'));
+const DoctorRegistration= lazy(() => import('./private/DoctorManagement/DoctorReg'));
+const AppointmentRegistration= lazy(() => import('./private/AppointmentManagment/AppointmentBook'));
 
 function App() {
   const [doctors, setDoctors] = useState([]);
