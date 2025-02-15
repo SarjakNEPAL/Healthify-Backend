@@ -27,6 +27,7 @@ const HospitalDashboard = () => {
             <button onClick={() => navigate("/patients")} className="button">Patient Details</button>
         <button onClick={() => navigate("/doctors")} className="button">Doctor Details</button>
         <button onClick={() => navigate("/appointments")} className="button">Appointments</button>
+        <button onClick={() => navigate("/Staffs")} className="button">Staffs</button>
         <button onClick={() => navigate("/change-password")} className="button">Change Password</button>
             </div>
           </div>
