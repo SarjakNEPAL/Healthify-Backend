@@ -170,7 +170,7 @@ main h1{
 }
 
 #boxcontent{
-    background: linear-gradient( #28615dc7, #238b84d3),url(../../img/hospital.jpg);
+    background: linear-gradient( #28615dc7, #238b84d3);
     background-size: cover;
     background-repeat: no-repeat;
     width:fit-content;

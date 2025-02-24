@@ -59,19 +59,6 @@ main h1{
     justify-self: center;
 }
 
-#boxcontent{
-    background: linear-gradient( #28615dc7, #238b84d3),url(../img/stetiscope.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    width:fit-content;
-    height:60vh;
-    justify-self: center;
-    display: flex;
-    align-items: center;
-    margin-top: 5rem;
-    border-radius: 5rem;
-}
-
 .header-content{
     display: flex;
     flex-direction: column;
@@ -166,7 +153,7 @@ form label{
     display: flex;
     align-items: center;
     justify-content: space-around; 
-    background: linear-gradient( #28615dc7, #238b84d3),url(../img/stetiscope.jpg);
+    background: linear-gradient( #28615dc7, #238b84d3),url(../../img/stetiscope.jpg);
     margin: 1rem;
     padding: 1rem;
     border-radius: 24px;
@@ -200,8 +187,8 @@ form label{
     #boxcontent img, #login img, #info{
 display: none;
     }
-    #boxcontent{
-        background: linear-gradient( #28615db0, #238b84d3),url(../res/doctor3.jpg);
+    #login{
+        background: linear-gradient( #28615db0, #238b84d3),url(../../img/doctor.jpg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;

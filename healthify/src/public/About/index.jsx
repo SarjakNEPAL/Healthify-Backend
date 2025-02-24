@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { Fragment } from 'react';
 import './About.css';
 
 const About = () => {
@@ -32,8 +31,8 @@ const About = () => {
             <h2>About Healthify</h2>
             <p>
               Healthify is a comprehensive hospital management system that helps you manage your hospital efficiently. <br/>
-              From patient registration to appointment booking, staff management to doctor allocation, Healthify has got you covered.</p>
-              <p>Our mission is to streamline hospital operations and enhance patient care through innovative technology. 
+              From patient registration to appointment booking, staff management to doctor allocation, Healthify has got you covered.<br/>
+              Our mission is to streamline hospital operations and enhance patient care through innovative technology. 
             With Healthify, you can easily manage appointments, track patient records, and ensure efficient staff coordination.
             We provide real-time analytics and reporting to help hospitals make data-driven decisions.
             </p>
@@ -50,3 +49,4 @@ const About = () => {
   );
 };
 
+export default About;
