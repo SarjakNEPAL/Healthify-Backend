@@ -13,7 +13,7 @@
     padding: 24px;
     max-width: 1200px;
     margin: 0 auto;
-    background: linear-gradient( #28615dc7, #238b84d3),url(../../img/stetiscope.jpg);
+    
   }
   
   .header {
@@ -54,16 +54,20 @@
   }
   
   .card {
-    background-color: white;
+    background: linear-gradient( #97b8b6b0, #2c3b3af0),url("../../img/doctor.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 16px;
+
     margin-bottom: 24px;
   }
   
   .card-header h3 {
-    font-size: 1.25rem;
-    color: var(--gray-700);
+    font-size: 1.5rem;
+    color: rgb(16, 16, 16);
     margin-bottom: 16px;
   }
   
@@ -81,11 +85,16 @@
   .form-group {
     display: flex;
     flex-direction: column;
+
+
   }
   
   .form-group label {
     margin-bottom: 8px;
-    color: var(--gray-500);
+    color: black;
+    background-color: #c9cccf43;
+    padding: 0.2rem;
+    border-radius: 2rem;
   }
   
   .form-group input, .form-group select {
