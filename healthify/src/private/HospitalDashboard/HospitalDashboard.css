@@ -1,26 +1,19 @@
-:root {
-  --primary-teal: #20B2AA;
-  --dark-teal: #2A8A84;
-  --light-teal: #26C6BE;
-  --white: #FFFFFF;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-500: #6b7280;
-  --gray-700: #374151;
-}
-
 * {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  margin: 0;
+}
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.138), rgba(0, 0, 0, 0.259)),url('../../img/blur-hospital.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-
-body {
-  background-color: var(--gray-100);
-  color: var(--gray-700);
-}
-
 nav, #subnav {
   background-color: #18bab0;
   color: rgb(255, 255, 255);
@@ -29,11 +22,7 @@ nav, #subnav {
   align-items: center;
   flex-direction: row;
   position: sticky;
-  padding: 1rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  z-index: 1000;
 }
-
 nav h1 {
   font-weight: bolder;
   font-size: 1.5rem;
@@ -52,6 +41,10 @@ nav #trans {
 nav a img {
   width: 3rem;
 }
+body {
+  background-color: var(--gray-100);
+  color: var(--gray-700);
+}
 main {
   display: flex;
   justify-content: center;
@@ -64,28 +57,37 @@ main h1 {
 main {
   padding: 2rem;
 }
-
-#boxcontent {
-  background-color: var(--white);
-  padding: 2.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  max-width: 1200px;
-  margin: 0 auto;
-  background-image: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(245,255,254,0.95) 100%);
+#boxcontent{
+  background: linear-gradient( #28615dc7, #238b84d3),url(../../img/stetiscope.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width:fit-content;
+  color:#060e0d;
+  height:60vh;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  margin-top: 5rem;
+  border-radius: 5rem;
 }
 
-.header-content {
-  margin-bottom: 2rem;
+.header-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 2rem;
+  justify-content: space-between;
 }
 
-.header-buttons {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
+#boxcontent img{
+  height: 45vh;
+  border:solid  #18bab0 0.5rem;
+  border-radius: 6rem;
+  margin: 1rem;
+  flex-shrink: 2;
 
+}
 .header-buttons .button {
   border: 2px solid #51dacc;
   border-radius: 1rem;
@@ -114,17 +116,14 @@ main {
   margin-top: 2rem;
 }
 
-footer {
-  background-color: #18bab0;
-  color: rgb(255, 255, 255);
+footer{
+  background-color: #18bab0; 
+  color: rgb(255, 255, 255); 
   justify-content: space-around;
   text-align: center;
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 1rem;
-  font-size: 0.9rem;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
 }
 
 /* Responsive Design */

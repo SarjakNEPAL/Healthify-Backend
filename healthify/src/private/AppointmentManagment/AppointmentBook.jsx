@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import "./AppointmentRegistration.css";
+import "./AppointmentManagement.css";
 
 const AppointmentRegistration = ({ addAppointment }) => {
   const { register, handleSubmit, reset } = useForm();

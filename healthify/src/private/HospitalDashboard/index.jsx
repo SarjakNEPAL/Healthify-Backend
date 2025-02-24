@@ -28,25 +28,21 @@ const HospitalDashboard = () => {
           <div className="header-content">
             <h1>Healthify Hospital Dashboard</h1>
             <div className="header-buttons">
-            <button onClick={() => navigate("/patients")} className="button">
+            <button onClick={() => navigate("/patient-management")} className="button">
               <User size={20} className="mr-2" />
               Patient Details
             </button>
-            <button onClick={() => navigate("/doctors")} className="button">
+            <button onClick={() => navigate("/doctor-management")} className="button">
               <Stethoscope size={20} className="mr-2" />
               Doctor Details
             </button>
-            <button onClick={() => navigate("/appointments")} className="button">
+            <button onClick={() => navigate("/appointment-management")} className="button">
               <Calendar size={20} className="mr-2" />
               Appointments
             </button>
-            <button onClick={() => navigate("/Staffs")} className="button">
+            <button onClick={() => navigate("/staff-management")} className="button">
               <Users size={20} className="mr-2" />
               Staff Management
-            </button>
-            <button onClick={() => navigate("/change-password")} className="button">
-              <Lock size={20} className="mr-2" />
-              Change Password
             </button>
 
             </div>

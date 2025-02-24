@@ -13,6 +13,7 @@
     padding: 24px;
     max-width: 1200px;
     margin: 0 auto;
+    background: linear-gradient( #28615dc7, #238b84d3),url(../../img/stetiscope.jpg);
   }
   
   .header {
