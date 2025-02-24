@@ -1,60 +1,82 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Plus } from 'lucide-react';
+import DataTable from "react-data-table-component";
 import './StaffManagement.css';
 
-const PatientManagement = () => {
-  const { register, handleSubmit } = useForm();
+const StaffManagement = () => {
+  const [staff, setStaff] = useState([
+    { id: 1, name: "Alice Smith", branch: "Cardiology" },
+    { id: 2, name: "Bob Johnson", branch: "Neurology" },
+  ]);
 
-  const onSubmit = (data) => {
-    console.log(data);
-    // Add patient registration logic here
+  const deleteStaff = (id) => {
+    setStaff(staff.filter((member) => member.id !== id));
   };
+
+  const columns = [
+    { name: "Name", selector: (row) => row.name, sortable: true },
+    { name: "Branch", selector: (row) => row.branch, sortable: true },
+    {
+      name: "Actions",
+      cell: (row) => (
+        <button
+          onClick={() => deleteStaff(row.id)}
+          className="delete-button"
+        >
+          Delete
+        </button>
+      ),
+    },
+  ];
 
   return (
     <>
-      {/* Navigation Bar */}
       <nav>
-        <Link to="/" className="logo">
-          <img src="../../../img/logo.png" alt="Healthify Logo" />
+        <Link to="/hospital-dashboard" className="logo">
+          <img src="./src/img/logo.png" alt="Healthify" />
         </Link>
-        <Link to="/" className="nav-title">
+        <Link to="/hospital-dashboard" style={{ color: "aliceblue", textDecoration: "none" }}>
           <h1>Healthify</h1>
         </Link>
         <div id="trans">
-          <Link to="/patients">Patients</Link>
-          <Link to="/appointments">Appointments</Link>
-          <Link to="/staff">Staff</Link>
+          <Link to="/hospital-dashboard">Back</Link>
         </div>
       </nav>
+      <div className="container">
+        <div className="header">
+          <div className="title">
+            <h2>Staff Management</h2>
+            <p>Manage and register staff in the system</p>
+          </div>
+          <Link to="/staff-registration" className="toggle-button">
+            <Plus className="icon" size={20} /> Register New Staff
+          </Link>
+        </div>
 
-      {/* Secondary Navigation (for smaller screens) */}
-      <div id="subnav">
-        <Link to="/patients">Patients</Link>
-        <Link to="/appointments">Appointments</Link>
-        <Link to="/staff">Staff</Link>
+        <div className="list-view">
+          <div className="search-bar">
+            <input 
+              type="text"
+              placeholder="Search staff..." 
+              className="search-input"
+            />
+          </div>
+          <div className="table-wrapper">
+            <DataTable
+              columns={columns}
+              data={staff}
+              pagination
+            />
+          </div>
+        </div>
       </div>
 
-      {/* Main Content */}
-      <div className="management">
-        <h2>Manage Patients</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" {...register('name', { required: true })} />
-          <label htmlFor="age">Age</label>
-          <input type="number" id="age" {...register('age', { required: true })} />
-          <label htmlFor="gender">Gender</label>
-          <select id="gender" {...register('gender', { required: true })}>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
-          <label htmlFor="contact">Contact</label>
-          <input type="text" id="contact" {...register('contact', { required: true })} />
-          <button type="submit" className="button">Add Patient</button>
-        </form>
-      </div>
+      <footer className="footer">
+        <p>&copy; 2024 Web Development Project. By Sarjak Bhandari.</p>
+      </footer>
     </>
   );
 };
 
-export default PatientManagement;
+export default StaffManagement;

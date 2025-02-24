@@ -34,7 +34,7 @@ const AdminPanel = () => {
           <h1>Healthify | Admin</h1>
         </Link>
         <div id="trans">
-          <Link to="/change-password" className="change-password-btn">Change Password</Link>
+          <Link to="#" className="logout-btn">LogOut</Link>
         </div>
       </nav>
         <div className="admin-container">
@@ -48,27 +48,4 @@ const AdminPanel = () => {
   );
 };
 
-const ChangePassword = () => {
-  const [password, setPassword] = useState("");
-  
-  const handleChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Password changed successfully!");
-  };
-
-  return (
-    <div className="change-password-container">
-      <h2>Change Password</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="password" value={password} onChange={handleChange} placeholder="New Password" required />
-        <button type="submit">Update Password</button>
-      </form>
-      <Link to="/admin">Back to Admin Panel</Link>
-    </div>
-  );
-};
 export default AdminPanel;

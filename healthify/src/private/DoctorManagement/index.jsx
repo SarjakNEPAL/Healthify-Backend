@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DataTable from "react-data-table-component";
-import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { Search, Plus } from 'lucide-react';
 import "./DoctorManagement.css";
 
 const DoctorMgmt = () => {
@@ -10,15 +10,8 @@ const DoctorMgmt = () => {
     { id: 2, name: "Dr. Johnson", specialization: "Neurology" },
   ]);
 
-  const { register, handleSubmit, reset } = useForm();
-
   const deleteDoctor = (id) => {
     setDoctors(doctors.filter((doc) => doc.id !== id));
-  };
-
-  const addDoctor = (data) => {
-    setDoctors([...doctors, { id: doctors.length + 1, ...data }]);
-    reset();
   };
 
   const doctorColumns = [
@@ -40,44 +33,45 @@ const DoctorMgmt = () => {
   return (
     <>
       <nav>
-              <Link to="/hospital-dashboard" className="logo">
-                <img src="./src/img/logo.png" alt="Healthify" />
-              </Link>
-              <Link to="/hospital-dashboard" style={{ color: "aliceblue", textDecoration: "none" }}>
-                <h1>Healthify</h1>
-              </Link>
-              <div id="trans">
-                <Link to="/hospital-dashboard">Back</Link>
-              </div>
-            </nav>
-      <div className="container">
-        <div className="card">
-          <div className="card-header">
-            <h3>Add Doctor</h3>
-          </div>
-          <div className="card-content">
-            <form onSubmit={handleSubmit(addDoctor)} className="form">
-              <div className="form-grid">
-                <div className="form-group">
-                  <label>Doctor Name</label>
-                  <input {...register("name", { required: "Doctor name is required" })} type="text" />
-                </div>
-                <div className="form-group">
-                  <label>Specialization</label>
-                  <input {...register("specialization", { required: "Specialization is required" })} type="text" />
-                </div>
-              </div>
-              <div className="form-actions">
-                <button type="submit" className="submit-button">Add Doctor</button>
-              </div>
-            </form>
-          </div>
+        <Link to="/hospital-dashboard" className="logo">
+          <img src="./src/img/logo.png" alt="Healthify" />
+        </Link>
+        <Link to="/hospital-dashboard" style={{ color: "aliceblue", textDecoration: "none" }}>
+          <h1>Healthify</h1>
+        </Link>
+        <div id="trans">
+          <Link to="/hospital-dashboard">Back</Link>
         </div>
-      </div>
+      </nav>
 
       <div className="container">
-          <h2>Doctor Management</h2>
-          <DataTable columns={doctorColumns} data={doctors} pagination />
+        <div className="header">
+          <div className="title">
+            <h2>Doctor Management</h2>
+            <p>Manage and register doctors in the system</p>
+          </div>
+          <Link to="/doctor-registration" className="toggle-button">
+            <Plus className="icon" size={20} /> Register New Doctor
+          </Link>
+        </div>
+
+        <div className="list-view">
+          <div className="search-bar">
+            <input 
+              type="text"
+              placeholder="Search doctors..." 
+              className="search-input"
+            />
+            <Search className="search-icon" size={20} />
+          </div>
+          <div className="table-wrapper">
+            <DataTable
+              columns={doctorColumns}
+              data={doctors}
+              pagination
+            />
+          </div>
+        </div>
       </div>
 
       <footer className="footer">

@@ -18,7 +18,7 @@ const HospitalRegistration = () => {
           <img src="./src/img/logo.png" alt="Healthify" />
         </Link>
         <Link to="/" style={{ color: "aliceblue", textDecoration: "none" }}>
-          <h1>Healthify</h1>
+          <h1>Healthify | Registration</h1>
         </Link>
         <div id="trans">
           <Link to="/login">Login</Link>
