@@ -33,7 +33,7 @@ const Login = () => {
     <>
         <nav>
             <Link to="/" className="logo"><img src="src/img/logo.png" alt="Healthify" /></Link>
-            <Link to="/" style={{ color: "aliceblue", textDecoration: "none" }}><h1>Healthify</h1></Link>
+            <Link to="/" style={{ color: "aliceblue", textDecoration: "none" }}><h1>Healthify | Login </h1></Link>
             <div id="trans">
                 <Link to="/register">Register</Link>
                 <Link to="/about">About</Link>
